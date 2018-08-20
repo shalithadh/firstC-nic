@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace sturegwinApp
+{
+   public class DatabaseClass
+    {
+        public SqlConnection con = null;
+
+        public static SqlConnection openConnection()
+        {
+
+           // try { 
+                    SqlConnection con = new SqlConnection("Data Source=10.10.1.49;Initial Catalog=testshadb;Integrated Security=False;User ID=sa;Password=dev@123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                    con.Open();
+                   // con.Close();
+                    return con;
+               //  }
+
+           //catch (Exception ex)
+           // {
+                //MessageBox.Show("Database is not connected");
+          //  }
+
+           
+        }
+        public void closeConnection()
+        {
+            con.Close();
+        }
+
+        //Manoj
+        public SqlConnection getConnection()
+        {
+            openConnection();
+            return con;
+        }
+
+    }
+}
